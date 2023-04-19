@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SongInfoController } from './song/song-info.controller';
+import { SongController } from './song/song.controller';
 import { SongService } from './song/song.service';
 import { PlayerService } from './player/player.service';
 import { PlayerController } from './player/player.controller';
@@ -15,16 +15,16 @@ import { Player } from './model/player.entity';
     TypeOrmModule.forFeature([Player]),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: '137.184.76.157',
       port: 3306,
-      username: 'your-username',
-      password: 'your-password',
-      database: 'your-database-name',
+      username: 'remote_user',
+      password: '2023Hackathon@',
+      database: 'hackathon',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
   ],
-  controllers: [AppController, SongInfoController, PlayerController],
+  controllers: [AppController, SongController, PlayerController],
   providers: [AppService, SongService, PlayerService],
 })
 export class AppModule {}

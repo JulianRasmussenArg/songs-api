@@ -10,6 +10,6 @@ export class Song {
   @Column()
   artist: string;
 
-  @Column('text', { array: true })
+  @Column('json')
   lyrics: string[];
 }

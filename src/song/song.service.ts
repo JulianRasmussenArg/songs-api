@@ -10,9 +10,9 @@ export class SongService {
     private readonly songRepository: Repository<Song>,
   ) {}
 
-  async getSongInfo(songsAmount: number): Promise<Song[]> {
+  async getSongs(songsAmount: number): Promise<Song[]> {
     const selectedSongs = await this.selectRandomSongs(songsAmount);
-    Logger.log('info');
+
     const songsInfo = await Promise.all(
       selectedSongs.map(async (song) => {
         const lyrics = await this.getSongLyrics(song.name);

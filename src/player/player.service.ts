@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Player } from '../model/player.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -9,6 +9,16 @@ export class PlayerService {
     @InjectRepository(Player)
     private readonly playerRepository: Repository<Player>,
   ) {}
+
+  async create(createPlayer: Player): Promise<Player> {
+    Logger.log('player', createPlayer);
+    const player = new Player();
+    player.name = createPlayer.name;
+    player.password = createPlayer.password;
+    player.email = createPlayer.email;
+    player.score = createPlayer.score || 0;
+    return this.playerRepository.save(player);
+  }
 
   async getAllPlayers(): Promise<Player[]> {
     return await this.playerRepository.find();
