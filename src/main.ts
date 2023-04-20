@@ -15,7 +15,7 @@ async function bootstrap() {
     optionsSuccessStatus: 204,
     credentials: true,
     allowedHeaders:
-      'Content-Type, Accept, Authorization, X-Requested-With, Cache-Control',
+      'Content-Type, Accept, Authorization, X-Requested-With, Cache-Control, appkey',
   };
   app.use(cors(corsOptions));
 
