@@ -4,12 +4,11 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 import * as cors from 'cors';
 import * as fs from 'fs';
-
 import path from 'path';
 
 const httpsOptions = {
-  key: fs.readFileSync(path.join(__dirname, 'private-key.pem')),
-  cert: fs.readFileSync(path.join(__dirname, 'public-certificate.pem')),
+  key: fs.readFileSync('/root/songs-api/src/private-key.pem'),
+  cert: fs.readFileSync('/root/songs-api/src/public-certificate.pem'),
 };
 
 
