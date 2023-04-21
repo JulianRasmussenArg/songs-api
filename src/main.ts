@@ -7,8 +7,8 @@ import * as fs from 'fs';
 import path from 'path';
 
 const httpsOptions = {
-  key: fs.readFileSync('/root/songs-api/src/private-key.pem'),
-  cert: fs.readFileSync('/root/songs-api/src/public-certificate.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/hackathon.ar-0002/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/hackathon.ar-0002/fullchain.pem'),
 };
 
 
