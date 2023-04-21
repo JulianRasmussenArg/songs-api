@@ -5,10 +5,13 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 import * as cors from 'cors';
 import * as fs from 'fs';
 
+import path from 'path';
+
 const httpsOptions = {
-  key: fs.readFileSync('private-key.pem'),
-  cert: fs.readFileSync('public-certificate.pem'),
+  key: fs.readFileSync(path.join(__dirname, 'private-key.pem')),
+  cert: fs.readFileSync(path.join(__dirname, 'public-certificate.pem')),
 };
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
