@@ -58,7 +58,7 @@ export class PlayerController {
     return await this.playerService.getAllPlayers();
   }
 
-  @Put('/score/:id')
+  @Put('/score/')
   @ApiOperation({ summary: 'Update player score' })
   @ApiParam({ name: 'id', type: 'number' })
   @ApiHeader({
@@ -68,7 +68,7 @@ export class PlayerController {
   @ApiResponse({ status: 200, type: Player })
   async updatePlayerScore(
     @Headers() headers,
-    @Param('id') id: number,
+    @Body('id') id: string,
     @Body('score') score: number,
   ): Promise<Player> {
     if (headers.appkey !== 'YOUR_APP_KEY') {
