@@ -68,7 +68,7 @@ export class PlayerController {
   @ApiResponse({ status: 200, type: Player })
   async updatePlayerScore(
     @Headers() headers,
-    @Body('id') id: string,
+    @Body('email') id: string,
     @Body('score') score: number,
   ): Promise<Player> {
     if (headers.appkey !== 'YOUR_APP_KEY') {
